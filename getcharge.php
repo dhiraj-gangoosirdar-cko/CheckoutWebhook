@@ -12,9 +12,9 @@ $param = array();
 $param['authorization'] = $_POST['key'];
 $param['chargeId'] = $_POST['charge_id'];
 
-$Api = new CheckoutApi_Api();
-$respond = $Api::getApi(array('mode' => $_POST['mode']));
-$charge = $respond->getCharge($param);
+$Api = CheckoutApi_Api::getApi ( array ( 'mode' => $_POST['mode']) );
+
+$charge = $Api->getCharge($param);
 
 if ($charge->isValid()) {
 
